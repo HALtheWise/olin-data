@@ -15,7 +15,11 @@ assert len(names) == len(images)
 
 print zip(names, images)
 
-os.makedirs('renamed_images')
+try:
+    os.makedirs('renamed_images')
+except:
+    pass
+
 for name, image in zip(names, images):
     shutil.copyfile('images/{}'.format(image), 'renamed_images/{}.jpg'.format(name))
 
